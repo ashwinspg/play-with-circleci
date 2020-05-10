@@ -33,3 +33,9 @@ jobs:
             sleep 3
             echo 'Hello World!'
             echo 'This is the delivery pipeline'
+workflows:
+   version: 2
+   one_and_two: # this is the name of our workflow
+     jobs: # and here we list the jobs we are going to run.
+       - build1
+       - build2
