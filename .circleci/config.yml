@@ -7,8 +7,9 @@ jobs:
     steps:
       - checkout
       - run:
-          name: The First Step
+          name: Step 1
           command: |
+            sleep 5
             echo 'Hello World!'
             echo 'This is the delivery pipeline'
       - run:
@@ -20,3 +21,15 @@ jobs:
           name: Running in a Unique Container
           command: |
             node -v
+  build:
+    # pre-built images: https://circleci.com/docs/2.0/circleci-images/
+    docker:
+      - image: circleci/node:10-browsers
+    steps:
+      - checkout
+      - run:
+          name: Step 2
+          command: |
+            sleep 3
+            echo 'Hello World!'
+            echo 'This is the delivery pipeline'
