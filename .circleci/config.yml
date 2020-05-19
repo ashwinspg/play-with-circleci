@@ -23,6 +23,7 @@ jobs:
         type: env_var_name
     steps:
       - run:
+          name: my-job commands
           command: |
             echo << parameters.parameter1 >>
             echo << parameters.env_var1 >>
