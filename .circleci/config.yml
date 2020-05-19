@@ -37,8 +37,6 @@ jobs:
             echo $param1
             echo $env1
             echo $checkcheck
-            ls
-            touch aaa.txt
       - my-command
       - run:
           name: my-job commands 2
@@ -49,7 +47,6 @@ jobs:
             echo $e2
             echo $p3
             echo $e3
-            ls
           environment:
             p1: << parameters.parameter1 >>
             e1: << parameters.env_var1 >>
