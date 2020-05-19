@@ -42,12 +42,16 @@ jobs:
             echo $e1
             echo $p2
             echo $e2
+            echo $p3
+            echo $e3
             env
           environment:
             p1: << parameters.parameter1 >>
             e1: << parameters.env_var1 >>
             p2: ${<< parameters.parameter1 >>}
             e2: ${<< parameters.env_var1 >>}
+            p3: $parameter1
+            e3: $env_var1
 
 workflows:
   my-workflow:
