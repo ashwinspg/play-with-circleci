@@ -54,6 +54,16 @@ jobs:
             e2: ${<< parameters.env_var1 >>}
             p3: $param1
             e3: $env1
+      - run:
+          name: Setup Environment Variables
+          command: |
+            echo "export p3=$param1" >> $BASH_ENV
+            echo "export e3=$env1" >> $BASH_ENV
+      - run:
+          name: getting Environment Variables
+          command: |
+            echo $p3
+            echo $e3
 
 workflows:
   my-workflow:
