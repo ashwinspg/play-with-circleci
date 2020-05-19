@@ -22,15 +22,19 @@ jobs:
       env_var1:
         type: env_var_name
     steps:
+      - my-command
       - run:
           name: my-job commands
           command: |
+            export checkcheck=true
             echo << parameters.parameter1 >>
             echo << parameters.env_var1 >>
             echo ${<< parameters.parameter1 >>}
             echo ${<< parameters.env_var1 >>}
             echo $parameter1
             echo $env_var1
+            echo $checkcheck
+      - my-command
 
 workflows:
   my-workflow:
