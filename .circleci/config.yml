@@ -16,8 +16,8 @@ commands:
 jobs:
   my-job:
     shell: /bin/sh -leo pipefail
-      environment:
-        - BASH_ENV: /etc/profile
+    environment:
+      - BASH_ENV: /etc/profile
     executor: my-executor
     parameters:
       parameter1:
