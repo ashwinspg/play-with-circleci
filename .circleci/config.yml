@@ -31,8 +31,8 @@ jobs:
             echo << parameters.env_var1 >>
             echo ${<< parameters.parameter1 >>}
             echo ${<< parameters.env_var1 >>}
-            echo $parameter1
-            echo $env_var1
+            echo $param1
+            echo $env1
             echo $checkcheck
       - my-command
       - run:
@@ -50,8 +50,8 @@ jobs:
             e1: << parameters.env_var1 >>
             p2: ${<< parameters.parameter1 >>}
             e2: ${<< parameters.env_var1 >>}
-            p3: $parameter1
-            e3: $env_var1
+            p3: $param1
+            e3: $env1
 
 workflows:
   my-workflow:
