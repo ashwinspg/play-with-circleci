@@ -1,57 +1,39 @@
 version: 2.1
+
+executors:
+  my-executor:
+    docker:
+      - image: alpine:3.7
+
+commands:
+  my-command:
+    steps:
+      - run:
+          name: my-command
+          command: |
+            env
+
 jobs:
-  Hello-World:
-    docker:
-      - image: alpine:3.7
+  my-job:
+    executor: my-executor
+    parameters:
+      parameter1:
+        type: string
+      env_var1:
+        type: env_var_name
     steps:
       - run:
-          name: Hello World
           command: |
-            echo 'Hello World!'
-            echo 'This is the delivery pipeline'
-  I-Have-Code:
-    docker:
-      - image: alpine:3.7
-    steps:
-      - checkout
-      - run:
-          name: Code Has Arrived
-          command: |
-            ls -al
-            echo '^^^That should look familiar^^^'
-  Run-With-Node:
-    docker:
-      - image: circleci/node:10-browsers
-    steps:
-      - run:
-          name: Running In A Container With Node
-          command: |
-            node -v
-  Now-Complete:
-    docker:
-      - image: alpine:3.7
-    steps:
-      - run:
-          name: Approval Complete
-          command: |
-            echo 'Do work once the approval has completed'
+            echo << parameters.parameter1 >>
+            echo << parameters.env_var1 >>
+            echo ${<< parameters.parameter1 >>}
+            echo ${<< parameters.env_var1 >>}
+            echo $parameter1
+            echo $env_var1
 
 workflows:
- version: 2
- Example_Workflow:
-   jobs:
-     - Hello-World
-     - I-Have-Code:
-         requires:
-           - Hello-World
-     - Run-With-Node:
-         requires:
-           - Hello-World
-     - Hold-For-Approval:
-         type: approval
-         requires:
-           - Run-With-Node
-           - I-Have-Code
-     - Now-Complete:
-         requires:
-           - Hold-For-Approval
+  my-workflow:
+    jobs:
+      - my-job:
+          parameter1: param1
+          env_var1: env1
