@@ -64,6 +64,8 @@ jobs:
           command: |
             echo $p3
             echo $e3
+  dummy-job:
+    executor: my-executor
 
 workflows:
   my-workflow:
@@ -71,8 +73,14 @@ workflows:
       - my-job:
           parameter1: param1
           env_var1: env1
+      - dummy-job:
+          requires:
+            - my-job
   my-workflow1:
     jobs:
       - my-job:
           parameter1: param1
           env_var1: env1
+      - dummy-job:
+          requires:
+            - my-job
