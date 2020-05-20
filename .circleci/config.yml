@@ -66,6 +66,8 @@ jobs:
             echo $e3
   dummy-job:
     executor: my-executor
+    steps:
+      - my-command
 
 workflows:
   my-workflow:
