@@ -20,11 +20,16 @@ jobs:
         type: env_var_name
     steps:
       - run:
-          name: my-job commands 1
+          name: parameters passing
           command: |
             echo << parameters.parameter1 >>
             echo << parameters.env_var1 >>
             echo << pipeline.parameters.image-tag >>
+      - run:
+          name: path printer
+          command: |
+            pwd
+            ls
 
 workflows:
   my-workflow:
