@@ -14,8 +14,6 @@ jobs:
   my-job:
     executor: my-executor
     parameters:
-      image-tag:
-        type: string
       parameter1:
         type: string
       env_var1:
@@ -26,7 +24,7 @@ jobs:
           command: |
             echo << parameters.parameter1 >>
             echo << parameters.env_var1 >>
-            echo << parameters.image-tag >>
+            echo << pipeline.parameters.image-tag >>
 
 workflows:
   my-workflow:
@@ -34,4 +32,3 @@ workflows:
       - my-job:
           parameter1: param1
           env_var1: env1
-          image-tag: << parameters.image-tag >>
