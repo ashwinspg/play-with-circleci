@@ -21,7 +21,6 @@ jobs:
     env_var1:
       type: env_var_name
   steps:
-    - my-command
     - run:
         name: my-job commands 1
         command: |
