@@ -14,19 +14,20 @@ parameters:
     default: "~/main"
 
 jobs:
-  executor: my-executor
-  parameters:
-    parameter1:
-      type: string
-    env_var1:
-      type: env_var_name
-  steps:
-    - run:
-        name: my-job commands 1
-        command: |
-          echo << parameters.parameter1 >>
-          echo << parameters.env_var1 >>
-          echo << parameters.image-tag >>
+  my-job:
+    executor: my-executor
+    parameters:
+      parameter1:
+        type: string
+      env_var1:
+        type: env_var_name
+    steps:
+      - run:
+          name: my-job commands 1
+          command: |
+            echo << parameters.parameter1 >>
+            echo << parameters.env_var1 >>
+            echo << parameters.image-tag >>
 
 workflows:
   my-workflow:
