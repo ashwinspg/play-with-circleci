@@ -27,9 +27,13 @@ jobs:
             echo << pipeline.parameters.image-tag >>
       - run:
           name: path printer
-          command: |
-            pwd
-            ls
+          command: pwd
+      - run:
+          name: path printer
+          command: cd ..
+      - run:
+          name: path printer
+          command: pwd
 
 workflows:
   my-workflow:
