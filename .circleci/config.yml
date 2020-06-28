@@ -5,13 +5,17 @@ executors:
     docker:
       - image: alpine:3.7
 
+parameters:
+  image-tag:
+    type: string
+    default: "latest"
+    
 jobs:
   my-job:
     executor: my-executor
     parameters:
       image-tag:
         type: string
-        default: "latest"
       parameter1:
         type: string
       env_var1:
