@@ -30,7 +30,7 @@ jobs:
           command: pwd
       - run:
           name: path printer
-          command: cd ..
+          command: cd .. && pwd
       - run:
           name: path printer
           command: pwd
