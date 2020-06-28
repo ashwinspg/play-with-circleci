@@ -34,3 +34,4 @@ workflows:
       - my-job:
           parameter1: param1
           env_var1: env1
+          image-tag: << parameters.image-tag >>
