@@ -11,7 +11,7 @@ parameters:
     default: "latest"
     
 commands:
-  print:
+  print-command:
     parameters:
       para:
         type: string
@@ -35,7 +35,7 @@ jobs:
             echo << parameters.parameter1 >>
             echo << parameters.env_var1 >>
             echo << pipeline.parameters.image-tag >>
-      - print:
+      - print-command:
           para: asdf
 
 workflows:
