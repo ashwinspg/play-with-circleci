@@ -5,7 +5,6 @@ jobs:
     parameters:
       preinstall-foo:
         type: string
-        default: ""
     machine: true
     steps:
       - run: echo << parameters.preinstall-foo >>
