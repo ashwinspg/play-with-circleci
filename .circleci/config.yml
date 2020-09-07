@@ -4,8 +4,8 @@ jobs:
   myjob:
     parameters:
       preinstall-foo:
-        type: boolean
-        default: false
+        type: string
+        default: ""
     machine: true
     steps:
       - run: echo "preinstall is << parameters.preinstall-foo >>"
@@ -21,8 +21,7 @@ workflows:
   workflow:
     jobs:
       - myjob:
-          preinstall-foo: false
+          preinstall-foo: aaa
       - myjob:
-          preinstall-foo: true
+          preinstall-foo: bbb
       - myjob
-      - myjob # The empty string is falsy
