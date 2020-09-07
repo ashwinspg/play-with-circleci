@@ -17,7 +17,7 @@ commands:
         type: string
     steps:
       - run:
-        command: echo << parameters.para >>
+          command: echo << parameters.para >>
       
     
 jobs:
