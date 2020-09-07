@@ -8,15 +8,7 @@ jobs:
         default: ""
     machine: true
     steps:
-      - run: echo "preinstall is << parameters.preinstall-foo >>"
-      - when:
-          condition: << parameters.preinstall-foo >>
-          steps:
-            - run: echo "preinstall"
-      - unless:
-          condition: << parameters.preinstall-foo >>
-          steps:
-            - run: echo "don't preinstall"
+      - run: echo << parameters.preinstall-foo >>
 workflows:
   workflow:
     jobs:
