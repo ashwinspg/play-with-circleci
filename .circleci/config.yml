@@ -36,7 +36,7 @@ jobs:
             echo << parameters.env_var1 >>
             echo << pipeline.parameters.image-tag >>
       - print-command:
-          para: asdf
+          para: << parameters.parameter1 >><< parameters.env_var1 >>
 
 workflows:
   my-workflow:
