@@ -24,4 +24,6 @@ workflows:
           preinstall-foo: aaa
       - myjob:
           preinstall-foo: bbb
+      - myjob:
+          preinstall-foo: 
       - myjob
