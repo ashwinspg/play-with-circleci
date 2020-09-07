@@ -10,6 +10,16 @@ parameters:
     type: string
     default: "latest"
     
+commands:
+  print:
+    parameters:
+      para:
+        type: string
+    steps:
+      - run:
+        command: echo << parameters.para >>
+      
+    
 jobs:
   my-job:
     executor: my-executor
@@ -25,15 +35,8 @@ jobs:
             echo << parameters.parameter1 >>
             echo << parameters.env_var1 >>
             echo << pipeline.parameters.image-tag >>
-      - run:
-          name: path printer
-          command: ls
-      - run:
-          name: path printer
-          command: touch aa.txt
-      - run:
-          name: path printer
-          command: ls
+      - print:
+          para: asdf
 
 workflows:
   my-workflow:
